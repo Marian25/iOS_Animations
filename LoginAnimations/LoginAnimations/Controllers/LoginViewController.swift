@@ -39,6 +39,9 @@ class LoginViewController: UIViewController {
         cloud2ImageView.alpha = 0.0
         cloud3ImageView.alpha = 0.0
         cloud4ImageView.alpha = 0.0
+        
+        loginButton.center.y += 30.0
+        loginButton.alpha = 0.0
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,6 +74,12 @@ class LoginViewController: UIViewController {
         UIView.animate(withDuration: 0.5, delay: 1.1, options: [], animations: {
             self.cloud4ImageView.alpha = 1.0
         }, completion: nil)
+        
+        UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: [], animations: {
+            self.loginButton.center.y -= 30.0
+            self.loginButton.alpha = 1.0
+        }, completion: nil)
+        
     }
 
 
