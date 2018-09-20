@@ -24,7 +24,10 @@ class LoginViewController: UIViewController {
     
     // MARK: -
     
-    private var spinner = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+    private let spinner = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+    private let statusImageView = UIImageView(image: UIImage(named: "banner"))
+    private let statusLabel = UILabel()
+    private let statusMessages = ["Connecting...", "Authorizing...", "Sending credentials...", "Failed"]
     
     // MARK: - View Life Cycle
     
@@ -39,6 +42,16 @@ class LoginViewController: UIViewController {
         spinner.startAnimating()
         spinner.alpha = 0.0
         loginButton.addSubview(spinner)
+        
+        statusImageView.isHidden = true
+        statusImageView.center = loginButton.center
+        view.addSubview(statusImageView)
+        
+        statusLabel.frame = CGRect(x: 0, y: 0, width: statusImageView.frame.size.width, height: statusImageView.frame.size.height)
+        statusLabel.font = UIFont(name: "HelveticaNeue", size: 18.0)
+        statusLabel.textColor = UIColor(red: 0.89, green: 0.38, blue: 0.0, alpha: 1.0)
+        statusLabel.textAlignment = .center
+        statusImageView.addSubview(statusLabel)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -64,11 +77,11 @@ class LoginViewController: UIViewController {
             self.headingLabel.center.x += self.view.bounds.width
         }
         
-        UIView.animate(withDuration: 0.5, delay: 0.3, options: [], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: [], animations: {
             self.usernameTextField.center.x += self.view.bounds.width
         }, completion: nil)
         
-        UIView.animate(withDuration: 0.5, delay: 0.4, options: [], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.4, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: [], animations: {
             self.passwordTextField.center.x += self.view.bounds.width
         }, completion: nil)
         
@@ -101,7 +114,9 @@ class LoginViewController: UIViewController {
         
         UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.0, options: [], animations: {
             self.loginButton.bounds.size.width += 80.0
-        }, completion: nil)
+        }, completion: { _ in
+            self.showMessage(index: 0)
+        })
         
         UIView.animate(withDuration: 0.33, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: [], animations: {
             self.loginButton.center.y += 60.0
@@ -113,6 +128,17 @@ class LoginViewController: UIViewController {
         
     }
     
+    // MARK: -
+    
+    func showMessage(index: Int) {
+        statusLabel.text = statusMessages[index]
+        
+        UIView.transition(with: statusImageView, duration: 0.33, options: [.curveEaseOut, .transitionCurlDown], animations: {
+            self.statusImageView.isHidden = false
+        }) { _ in
+            // transition completion
+        }
+    }
 
 }
 
