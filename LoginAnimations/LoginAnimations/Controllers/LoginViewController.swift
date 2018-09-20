@@ -8,6 +8,16 @@
 
 import UIKit
 
+// MARK: - Delay Function
+
+func delay(seconds: Double, completion: @escaping () -> ()) {
+    let milliseconds = Int(1000 * seconds)
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(milliseconds)) {
+        completion()
+    }
+}
+
 class LoginViewController: UIViewController {
 
     // MARK: - Properties
@@ -28,6 +38,8 @@ class LoginViewController: UIViewController {
     private let statusImageView = UIImageView(image: UIImage(named: "banner"))
     private let statusLabel = UILabel()
     private let statusMessages = ["Connecting...", "Authorizing...", "Sending credentials...", "Failed"]
+    
+    private var statusImageViewPosition = CGPoint.zero
     
     // MARK: - View Life Cycle
     
@@ -52,6 +64,9 @@ class LoginViewController: UIViewController {
         statusLabel.textColor = UIColor(red: 0.89, green: 0.38, blue: 0.0, alpha: 1.0)
         statusLabel.textAlignment = .center
         statusImageView.addSubview(statusLabel)
+        
+        // Save Initial Properties
+        statusImageViewPosition = statusImageView.center
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -136,9 +151,29 @@ class LoginViewController: UIViewController {
         UIView.transition(with: statusImageView, duration: 0.33, options: [.curveEaseOut, .transitionCurlDown], animations: {
             self.statusImageView.isHidden = false
         }) { _ in
-            // transition completion
+            delay(seconds: 1.5) {
+                if index < self.statusMessages.count - 1 {
+                    self.removeMessage(index: index)
+                } else {
+                    // reset form
+                }
+            }
+        }
+    
+    }
+    
+    func removeMessage(index: Int) {
+        UIView.animate(withDuration: 0.33, delay: 0.0, options: [], animations: {
+            self.statusImageView.center.x += self.view.frame.size.width
+        }) { _ in
+            self.statusImageView.isHidden = true
+            self.statusImageView.center = self.statusImageViewPosition
+            
+            self.showMessage(index: index + 1)
         }
     }
+    
+    
 
 }
 
