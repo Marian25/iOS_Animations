@@ -18,9 +18,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var cloud1ImageView: UIImageView!
-    @IBOutlet weak var cloud4ImageVIew: UIImageView!
-    @IBOutlet weak var cloud3ImageView: UIImageView!
     @IBOutlet weak var cloud2ImageView: UIImageView!
+    @IBOutlet weak var cloud3ImageView: UIImageView!
+    @IBOutlet weak var cloud4ImageView: UIImageView!
     
     // MARK: - View Life Cycle
     
@@ -34,6 +34,11 @@ class LoginViewController: UIViewController {
         headingLabel.center.x -= view.bounds.width
         usernameTextField.center.x -= view.bounds.width
         passwordTextField.center.x -= view.bounds.width
+        
+        cloud1ImageView.alpha = 0.0
+        cloud2ImageView.alpha = 0.0
+        cloud3ImageView.alpha = 0.0
+        cloud4ImageView.alpha = 0.0
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,8 +52,24 @@ class LoginViewController: UIViewController {
             self.usernameTextField.center.x += self.view.bounds.width
         }, completion: nil)
         
-        UIView.animate(withDuration: 0.5, delay: 0.6, options: [], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.4, options: [], animations: {
             self.passwordTextField.center.x += self.view.bounds.width
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.5, delay: 0.5, options: [], animations: {
+            self.cloud1ImageView.alpha = 1.0
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.5, delay: 0.7, options: [], animations: {
+            self.cloud2ImageView.alpha = 1.0
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.5, delay: 0.9, options: [], animations: {
+            self.cloud3ImageView.alpha = 1.0
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.5, delay: 1.1, options: [], animations: {
+            self.cloud4ImageView.alpha = 1.0
         }, completion: nil)
     }
 

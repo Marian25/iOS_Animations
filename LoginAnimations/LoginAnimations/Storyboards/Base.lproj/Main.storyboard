@@ -75,7 +75,7 @@
                         <outlet property="cloud1ImageView" destination="s6z-su-mkp" id="ytn-bz-beb"/>
                         <outlet property="cloud2ImageView" destination="ax9-ZH-4cj" id="0VQ-a3-3q1"/>
                         <outlet property="cloud3ImageView" destination="pIa-oP-YZt" id="Ozh-df-YOd"/>
-                        <outlet property="cloud4ImageVIew" destination="ggZ-lt-E75" id="VGV-it-Pxe"/>
+                        <outlet property="cloud4ImageView" destination="ggZ-lt-E75" id="TQQ-Us-PSL"/>
                         <outlet property="headingLabel" destination="mJS-ow-4sm" id="nDv-PH-ch2"/>
                         <outlet property="loginButton" destination="DUP-ff-iP4" id="zWq-MY-yc4"/>
                         <outlet property="passwordTextField" destination="vaP-Yu-kv9" id="5PJ-gR-EIF"/>
