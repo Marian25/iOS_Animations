@@ -148,14 +148,14 @@ class LoginViewController: UIViewController {
     func showMessage(index: Int) {
         statusLabel.text = statusMessages[index]
         
-        UIView.transition(with: statusImageView, duration: 0.33, options: [.curveEaseOut, .transitionCurlDown], animations: {
+        UIView.transition(with: statusImageView, duration: 0.33, options: [.curveEaseOut, .transitionFlipFromBottom], animations: {
             self.statusImageView.isHidden = false
         }) { _ in
             delay(seconds: 1.5) {
                 if index < self.statusMessages.count - 1 {
                     self.removeMessage(index: index)
                 } else {
-                    // reset form
+                    self.resetForm()
                 }
             }
         }
@@ -173,7 +173,19 @@ class LoginViewController: UIViewController {
         }
     }
     
-    
-
+    func resetForm() {
+        UIView.transition(with: statusImageView, duration: 0.2, options: [.transitionFlipFromTop], animations: {
+            self.statusImageView.isHidden = true
+            self.statusImageView.center = self.statusImageViewPosition
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.33, delay: 0, options: [], animations: {
+            self.spinner.center = CGPoint(x: -20.0, y: 16.0)
+            self.spinner.alpha = 0.0
+            self.loginButton.backgroundColor = UIColor(red: 0.63, green: 0.84, blue: 0.35, alpha: 1.0)
+            self.loginButton.bounds.size.width -= 80.0
+            self.loginButton.center.y -= 60.0
+        }, completion: nil)
+    }
 }
 
