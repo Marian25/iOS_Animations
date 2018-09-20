@@ -121,6 +121,10 @@ class LoginViewController: UIViewController {
             self.loginButton.alpha = 1.0
         }, completion: nil)
         
+        animateCloud(cloud: cloud1ImageView)
+        animateCloud(cloud: cloud2ImageView)
+        animateCloud(cloud: cloud3ImageView)
+        animateCloud(cloud: cloud4ImageView)
     }
 
     // MARK: - Actions
@@ -174,9 +178,8 @@ class LoginViewController: UIViewController {
     }
     
     func resetForm() {
-        UIView.transition(with: statusImageView, duration: 0.2, options: [.transitionFlipFromTop], animations: {
+        UIView.transition(with: statusImageView, duration: 0.33, options: [.transitionFlipFromTop], animations: {
             self.statusImageView.isHidden = true
-            self.statusImageView.center = self.statusImageViewPosition
         }, completion: nil)
         
         UIView.animate(withDuration: 0.33, delay: 0, options: [], animations: {
@@ -186,6 +189,18 @@ class LoginViewController: UIViewController {
             self.loginButton.bounds.size.width -= 80.0
             self.loginButton.center.y -= 60.0
         }, completion: nil)
+    }
+    
+    func animateCloud(cloud: UIImageView) {
+        let cloudSpeed = 30.0 / view.frame.size.width
+        let duration = (view.frame.size.width - cloud.frame.origin.x) * cloudSpeed
+        
+        UIView.animate(withDuration: TimeInterval(duration), delay: 0.0, options: .curveLinear, animations: {
+            cloud.frame.origin.x = self.view.frame.size.width
+        }) { _ in
+            cloud.frame.origin.x = -cloud.frame.size.width
+            self.animateCloud(cloud: cloud)
+        }
     }
 }
 
