@@ -8,8 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
+    @IBOutlet weak var headingLabel: UILabel!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    
+    
+    @IBOutlet weak var cloud1ImageView: UIImageView!
+    @IBOutlet weak var cloud4ImageVIew: UIImageView!
+    @IBOutlet weak var cloud3ImageView: UIImageView!
+    @IBOutlet weak var cloud2ImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
