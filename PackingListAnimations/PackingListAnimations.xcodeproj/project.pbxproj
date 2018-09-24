@@ -54,14 +54,46 @@
 		A2291A9A2158ED1000B45387 /* PackingListAnimations */ = {
 			isa = PBXGroup;
 			children = (
-				A2291A9B2158ED1000B45387 /* AppDelegate.swift */,
-				A2291A9D2158ED1000B45387 /* ViewController.swift */,
-				A2291A9F2158ED1000B45387 /* Main.storyboard */,
-				A2291AA22158ED1200B45387 /* Assets.xcassets */,
-				A2291AA42158ED1200B45387 /* LaunchScreen.storyboard */,
-				A2291AA72158ED1200B45387 /* Info.plist */,
+				A2E37E6D2158F1370047F56A /* Storyboards */,
+				A2E37E6B2158F11D0047F56A /* Controllers */,
+				A2E37E6A2158F0D60047F56A /* Resources */,
+				A2E37E6C2158F1240047F56A /* Supporting Files */,
 			);
 			path = PackingListAnimations;
+			sourceTree = "<group>";
+		};
+		A2E37E6A2158F0D60047F56A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A2291AA22158ED1200B45387 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A2E37E6B2158F11D0047F56A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A2291A9D2158ED1000B45387 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A2E37E6C2158F1240047F56A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A2291A9B2158ED1000B45387 /* AppDelegate.swift */,
+				A2291AA72158ED1200B45387 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A2E37E6D2158F1370047F56A /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A2291A9F2158ED1000B45387 /* Main.storyboard */,
+				A2291AA42158ED1200B45387 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,7 +314,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ULSKSPKFH7;
-				INFOPLIST_FILE = PackingListAnimations/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PackingListAnimations/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,7 +332,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ULSKSPKFH7;
-				INFOPLIST_FILE = PackingListAnimations/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PackingListAnimations/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
