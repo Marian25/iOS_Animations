@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A250289A2158BED4002A6952 /* FlightData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25028992158BED4002A6952 /* FlightData.swift */; };
+		A250289D2158BFB8002A6952 /* SnowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A250289C2158BFB8002A6952 /* SnowView.swift */; };
 		A28981F72158B7E700EC2E83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28981F62158B7E700EC2E83 /* AppDelegate.swift */; };
 		A28981F92158B7E700EC2E83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28981F82158B7E700EC2E83 /* ViewController.swift */; };
 		A28981FC2158B7E700EC2E83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A28981FA2158B7E700EC2E83 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A25028992158BED4002A6952 /* FlightData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightData.swift; sourceTree = "<group>"; };
+		A250289C2158BFB8002A6952 /* SnowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowView.swift; sourceTree = "<group>"; };
 		A28981F32158B7E700EC2E83 /* FlightAnimations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightAnimations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28981F62158B7E700EC2E83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A28981F82158B7E700EC2E83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +73,22 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A25028982158BEBE002A6952 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A25028992158BED4002A6952 /* FlightData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A250289B2158BF9F002A6952 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A250289C2158BFB8002A6952 /* SnowView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A28981EA2158B7E700EC2E83 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +108,8 @@
 		A28981F52158B7E700EC2E83 /* FlightAnimations */ = {
 			isa = PBXGroup;
 			children = (
+				A250289B2158BF9F002A6952 /* View */,
+				A25028982158BEBE002A6952 /* Model */,
 				A25028952158B977002A6952 /* Controllers */,
 				A25028942158B968002A6952 /* Storyboards */,
 				A25028962158B97F002A6952 /* Resources */,
@@ -168,6 +190,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A28981F92158B7E700EC2E83 /* ViewController.swift in Sources */,
+				A250289D2158BFB8002A6952 /* SnowView.swift in Sources */,
+				A250289A2158BED4002A6952 /* FlightData.swift in Sources */,
 				A28981F72158B7E700EC2E83 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
