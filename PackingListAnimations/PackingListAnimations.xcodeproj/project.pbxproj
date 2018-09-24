@@ -12,6 +12,7 @@
 		A2291AA12158ED1000B45387 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2291A9F2158ED1000B45387 /* Main.storyboard */; };
 		A2291AA32158ED1200B45387 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2291AA22158ED1200B45387 /* Assets.xcassets */; };
 		A2291AA62158ED1200B45387 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2291AA42158ED1200B45387 /* LaunchScreen.storyboard */; };
+		A2E37E7021592DC50047F56A /* HorizontalItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E37E6F21592DC50047F56A /* HorizontalItemList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		A2291AA22158ED1200B45387 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2291AA52158ED1200B45387 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2291AA72158ED1200B45387 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2E37E6F21592DC50047F56A /* HorizontalItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalItemList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		A2291A9A2158ED1000B45387 /* PackingListAnimations */ = {
 			isa = PBXGroup;
 			children = (
+				A2E37E6E21592DA90047F56A /* View */,
 				A2E37E6D2158F1370047F56A /* Storyboards */,
 				A2E37E6B2158F11D0047F56A /* Controllers */,
 				A2E37E6A2158F0D60047F56A /* Resources */,
@@ -94,6 +97,14 @@
 				A2291AA42158ED1200B45387 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A2E37E6E21592DA90047F56A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A2E37E6F21592DC50047F56A /* HorizontalItemList.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2E37E7021592DC50047F56A /* HorizontalItemList.swift in Sources */,
 				A2291A9E2158ED1000B45387 /* ViewController.swift in Sources */,
 				A2291A9C2158ED1000B45387 /* AppDelegate.swift in Sources */,
 			);

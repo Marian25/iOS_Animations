@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="trailing" secondItem="dIC-Wp-art" secondAttribute="trailing" constant="8" id="1mR-e9-3tP"/>
                                     <constraint firstItem="q34-50-f20" firstAttribute="centerX" secondItem="RrF-b3-DFB" secondAttribute="centerX" id="DVF-1C-IMc"/>
                                     <constraint firstAttribute="height" constant="60" id="J3E-gy-HsT"/>
-                                    <constraint firstItem="q34-50-f20" firstAttribute="centerY" secondItem="RrF-b3-DFB" secondAttribute="centerY" constant="5" id="K1n-QR-knm"/>
+                                    <constraint firstItem="q34-50-f20" firstAttribute="centerY" secondItem="RrF-b3-DFB" secondAttribute="centerY" constant="5" identifier="TitleCenterY" id="K1n-QR-knm"/>
                                     <constraint firstItem="dIC-Wp-art" firstAttribute="centerY" secondItem="q34-50-f20" secondAttribute="centerY" id="a6m-3Q-bpo"/>
                                 </constraints>
                             </view>
@@ -78,6 +78,7 @@
                     </view>
                     <connections>
                         <outlet property="menuButton" destination="dIC-Wp-art" id="Qm1-Ed-U1o"/>
+                        <outlet property="menuHeightConstraint" destination="J3E-gy-HsT" id="XMB-Lr-k7l"/>
                         <outlet property="tableView" destination="gdv-w9-Xoc" id="Aaa-bd-lZK"/>
                         <outlet property="titleLabel" destination="q34-50-f20" id="vGA-Ge-RiQ"/>
                     </connections>
