@@ -93,32 +93,34 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        let groupAnimation = CAAnimationGroup()
+        groupAnimation.beginTime = CACurrentMediaTime() + 0.3
+        groupAnimation.duration = 0.5
+        groupAnimation.fillMode = kCAFillModeBackwards
+        groupAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        groupAnimation.delegate = self
+        
         let flyRight = CABasicAnimation(keyPath: "position.x")
         flyRight.fromValue = -view.bounds.size.width / 2
         flyRight.toValue = view.bounds.size.width / 2
-        flyRight.duration = 0.5
-        flyRight.fillMode = kCAFillModeBoth
-        flyRight.isRemovedOnCompletion = false
         
-        flyRight.delegate = self
-        flyRight.setValue("form", forKey: "name")
-        flyRight.setValue(headingLabel.layer, forKey: "layer")
+        let opacityForm = CABasicAnimation(keyPath: "opacity")
+        opacityForm.fromValue = 0.25
+        opacityForm.toValue = 1.0
         
-        headingLabel.layer.add(flyRight, forKey: nil)
+        groupAnimation.animations = [flyRight, opacityForm]
         
-        flyRight.beginTime = CACurrentMediaTime() + 0.3
-        flyRight.setValue(usernameTextField.layer, forKey: "layer")
-        usernameTextField.layer.add(flyRight, forKey: nil)
+        groupAnimation.setValue("form", forKey: "name")
+        groupAnimation.setValue(headingLabel.layer, forKey: "layer")
+        headingLabel.layer.add(groupAnimation, forKey: nil)
+        
+        groupAnimation.beginTime = CACurrentMediaTime() + 0.3
+        groupAnimation.setValue(usernameTextField.layer, forKey: "layer")
+        usernameTextField.layer.add(groupAnimation, forKey: nil)
 
-        flyRight.beginTime = CACurrentMediaTime() + 0.4
-        flyRight.setValue(passwordTextField.layer, forKey: "layer")
-        passwordTextField.layer.add(flyRight, forKey: nil)
-        
-        loginButton.center.y += 30.0
-        loginButton.alpha = 0.0
-        
-        usernameTextField.layer.position.x -= view.bounds.width
-        passwordTextField.layer.position.x -= view.bounds.width
+        groupAnimation.beginTime = CACurrentMediaTime() + 0.4
+        groupAnimation.setValue(passwordTextField.layer, forKey: "layer")
+        passwordTextField.layer.add(groupAnimation, forKey: nil)
         
         let opacity = CABasicAnimation(keyPath: "opacity")
         opacity.fromValue = 0.0
@@ -142,10 +144,26 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: [], animations: {
-            self.loginButton.center.y -= 30.0
-            self.loginButton.alpha = 1.0
-        }, completion: nil)
+        let groupAnimation = CAAnimationGroup()
+        groupAnimation.beginTime = CACurrentMediaTime() + 0.5
+        groupAnimation.duration = 0.5
+        groupAnimation.fillMode = kCAFillModeBackwards
+        groupAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        
+        let scaleDown = CABasicAnimation(keyPath: "transform.scale")
+        scaleDown.fromValue = 3.5
+        scaleDown.toValue = 1.0
+        
+        let rotate = CABasicAnimation(keyPath: "transform.rotation")
+        rotate.fromValue = .pi / 4.0
+        rotate.toValue = 0.0
+        
+        let fade = CABasicAnimation(keyPath: "opacity")
+        fade.fromValue = 0.0
+        fade.toValue = 1.0
+        
+        groupAnimation.animations = [scaleDown, rotate, fade]
+        loginButton.layer.add(groupAnimation, forKey: nil)
         
         animateCloud(layer: cloud1ImageView.layer)
         animateCloud(layer: cloud2ImageView.layer)
@@ -166,8 +184,6 @@ class LoginViewController: UIViewController {
         fadeLabelIn.toValue = 1.0
         fadeLabelIn.duration = 4.5
         info.layer.add(fadeLabelIn, forKey: "fadein")
-        
-        
     }
 
     // MARK: - Actions
@@ -269,8 +285,6 @@ class LoginViewController: UIViewController {
 extension LoginViewController: CAAnimationDelegate {
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        print("animation did finish")
-        
         guard let name = anim.value(forKey: "name") as? String else { return }
         
         if name == "form" {
