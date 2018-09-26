@@ -43,6 +43,7 @@ class LoginViewController: UIViewController {
     
     // MARK: -
     
+    private let info = UILabel()
     private let spinner = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     private let statusImageView = UIImageView(image: UIImage(named: "banner"))
     private let statusLabel = UILabel()
@@ -54,6 +55,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
         
         // Setup the UI
         loginButton.layer.cornerRadius = 8.0
@@ -76,6 +80,14 @@ class LoginViewController: UIViewController {
         
         // Save Initial Properties
         statusImageViewPosition = statusImageView.center
+        
+        info.frame = CGRect(x: 0.0, y: loginButton.center.y + 60.0, width: view.frame.size.width, height: 30)
+        info.backgroundColor = .clear
+        info.font = UIFont(name: "HelveticaNeue", size: 12.0)
+        info.textAlignment = .center
+        info.textColor = .white
+        info.text = "Tap on a field and enter username and password"
+        view.insertSubview(info, belowSubview: loginButton)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -88,12 +100,18 @@ class LoginViewController: UIViewController {
         flyRight.fillMode = kCAFillModeBoth
         flyRight.isRemovedOnCompletion = false
         
+        flyRight.delegate = self
+        flyRight.setValue("form", forKey: "name")
+        flyRight.setValue(headingLabel.layer, forKey: "layer")
+        
         headingLabel.layer.add(flyRight, forKey: nil)
         
         flyRight.beginTime = CACurrentMediaTime() + 0.3
+        flyRight.setValue(usernameTextField.layer, forKey: "layer")
         usernameTextField.layer.add(flyRight, forKey: nil)
 
         flyRight.beginTime = CACurrentMediaTime() + 0.4
+        flyRight.setValue(passwordTextField.layer, forKey: "layer")
         passwordTextField.layer.add(flyRight, forKey: nil)
         
         loginButton.center.y += 30.0
@@ -129,13 +147,27 @@ class LoginViewController: UIViewController {
             self.loginButton.alpha = 1.0
         }, completion: nil)
         
-        animateCloud(cloud: cloud1ImageView)
-        animateCloud(cloud: cloud2ImageView)
-        animateCloud(cloud: cloud3ImageView)
-        animateCloud(cloud: cloud4ImageView)
+        animateCloud(layer: cloud1ImageView.layer)
+        animateCloud(layer: cloud2ImageView.layer)
+        animateCloud(layer: cloud3ImageView.layer)
+        animateCloud(layer: cloud4ImageView.layer)
         
         usernameTextField.layer.position.x = view.bounds.size.width / 2
         passwordTextField.layer.position.x = view.bounds.size.width / 2
+        
+        let flyLeft = CABasicAnimation(keyPath: "position.x")
+        flyLeft.fromValue = info.layer.position.x + view.frame.size.width
+        flyLeft.toValue = info.layer.position.x
+        flyLeft.duration = 5.0
+        info.layer.add(flyLeft, forKey: "infoappear")
+        
+        let fadeLabelIn = CABasicAnimation(keyPath: "opacity")
+        fadeLabelIn.fromValue = 0.2
+        fadeLabelIn.toValue = 1.0
+        fadeLabelIn.duration = 4.5
+        info.layer.add(fadeLabelIn, forKey: "fadein")
+        
+        
     }
 
     // MARK: - Actions
@@ -209,16 +241,19 @@ class LoginViewController: UIViewController {
         
     }
     
-    func animateCloud(cloud: UIImageView) {
-        let cloudSpeed = 30.0 / view.frame.size.width
-        let duration = (view.frame.size.width - cloud.frame.origin.x) * cloudSpeed
+    func animateCloud(layer: CALayer) {
+        // 1
+        let cloudSpeed = 30.0 / Double(view.layer.frame.size.width)
+        let duration: TimeInterval = Double(view.frame.size.width - layer.frame.origin.x) * cloudSpeed
         
-        UIView.animate(withDuration: TimeInterval(duration), delay: 0.0, options: .curveLinear, animations: {
-            cloud.frame.origin.x = self.view.frame.size.width
-        }) { _ in
-            cloud.frame.origin.x = -cloud.frame.size.width
-            self.animateCloud(cloud: cloud)
-        }
+        // 2
+        let cloudMove = CABasicAnimation(keyPath: "position.x")
+        cloudMove.duration = duration
+        cloudMove.toValue = self.view.bounds.width + layer.bounds.width / 2
+        cloudMove.delegate = self
+        cloudMove.setValue("cloud", forKey: "name")
+        cloudMove.setValue(layer, forKey: "layer")
+        layer.add(cloudMove, forKey: "nil")
     }
     
     func roundCorners(layer: CALayer, toRadius: CGFloat) {
@@ -230,4 +265,47 @@ class LoginViewController: UIViewController {
         layer.cornerRadius = toRadius
     }
 }
+
+extension LoginViewController: CAAnimationDelegate {
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        print("animation did finish")
+        
+        guard let name = anim.value(forKey: "name") as? String else { return }
+        
+        if name == "form" {
+            let layer = anim.value(forKey: "layer") as? CALayer
+            anim.setValue(nil, forKey: "layer")
+            
+            let pulse = CABasicAnimation(keyPath: "transform.scale")
+            pulse.fromValue = 1.25
+            pulse.toValue = 1.0
+            pulse.duration = 0.25
+            layer?.add(pulse, forKey: nil)
+        } else if name == "cloud" {
+            guard let layer = anim.value(forKey: "layer") as? CALayer else { return }
+            layer.position.x = -layer.bounds.width / 2
+            
+            delay(seconds: 0.2) {
+                self.animateCloud(layer: layer)
+            }
+        }
+    }
+    
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        info.layer.removeAnimation(forKey: "infoappear")
+    }
+    
+}
+
+
+
+
+
+
+
 
