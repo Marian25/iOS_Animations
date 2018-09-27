@@ -19,10 +19,14 @@ func delay(seconds: Double, completion: @escaping () -> ()) {
 }
 
 func tintBackgroundColor(layer: CALayer, toColor: UIColor) {
-    let colorAnimation = CABasicAnimation(keyPath: "backgroundColor")
+    let colorAnimation = CASpringAnimation(keyPath: "backgroundColor")
+    colorAnimation.mass = 50.0
+    colorAnimation.initialVelocity = 100.0
+    colorAnimation.damping = 1000.0
+    colorAnimation.stiffness = 200.0
     colorAnimation.fromValue = layer.backgroundColor
     colorAnimation.toValue = toColor.cgColor
-    colorAnimation.duration = 1.0
+    colorAnimation.duration = colorAnimation.settlingDuration
     layer.add(colorAnimation, forKey: nil)
     layer.backgroundColor = toColor.cgColor
 }
@@ -44,7 +48,7 @@ class LoginViewController: UIViewController {
     // MARK: -
     
     private let info = UILabel()
-    private let spinner = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+    private let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
     private let statusImageView = UIImageView(image: UIImage(named: "banner"))
     private let statusLabel = UILabel()
     private let statusMessages = ["Connecting...", "Authorizing...", "Sending credentials...", "Failed"]
@@ -96,8 +100,8 @@ class LoginViewController: UIViewController {
         let groupAnimation = CAAnimationGroup()
         groupAnimation.beginTime = CACurrentMediaTime() + 0.3
         groupAnimation.duration = 0.5
-        groupAnimation.fillMode = kCAFillModeBackwards
-        groupAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        groupAnimation.fillMode = CAMediaTimingFillMode.backwards
+        groupAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
         groupAnimation.delegate = self
         
         let flyRight = CABasicAnimation(keyPath: "position.x")
@@ -126,7 +130,7 @@ class LoginViewController: UIViewController {
         opacity.fromValue = 0.0
         opacity.toValue = 1.0
         opacity.duration = 0.5
-        opacity.fillMode = kCAFillModeBackwards
+        opacity.fillMode = CAMediaTimingFillMode.backwards
         
         opacity.beginTime = CACurrentMediaTime() + 0.5
         cloud1ImageView.layer.add(opacity, forKey: nil)
@@ -147,8 +151,8 @@ class LoginViewController: UIViewController {
         let groupAnimation = CAAnimationGroup()
         groupAnimation.beginTime = CACurrentMediaTime() + 0.5
         groupAnimation.duration = 0.5
-        groupAnimation.fillMode = kCAFillModeBackwards
-        groupAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        groupAnimation.fillMode = CAMediaTimingFillMode.backwards
+        groupAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
         
         let scaleDown = CABasicAnimation(keyPath: "transform.scale")
         scaleDown.fromValue = 3.5
@@ -273,10 +277,14 @@ class LoginViewController: UIViewController {
     }
     
     func roundCorners(layer: CALayer, toRadius: CGFloat) {
-        let cornerAnimation = CABasicAnimation(keyPath: "cornerRadius")
+        let cornerAnimation = CASpringAnimation(keyPath: "cornerRadius")
+        cornerAnimation.mass = 50.0
+        cornerAnimation.initialVelocity = 10.0
+        cornerAnimation.stiffness = 1000.0
+        cornerAnimation.damping = 80.0
         cornerAnimation.fromValue = layer.cornerRadius
         cornerAnimation.toValue = toRadius
-        cornerAnimation.duration = 0.33
+        cornerAnimation.duration = cornerAnimation.settlingDuration
         layer.add(cornerAnimation, forKey: nil)
         layer.cornerRadius = toRadius
     }
@@ -291,10 +299,11 @@ extension LoginViewController: CAAnimationDelegate {
             let layer = anim.value(forKey: "layer") as? CALayer
             anim.setValue(nil, forKey: "layer")
             
-            let pulse = CABasicAnimation(keyPath: "transform.scale")
+            let pulse = CASpringAnimation(keyPath: "transform.scale")
+            pulse.damping = 7.5
             pulse.fromValue = 1.25
             pulse.toValue = 1.0
-            pulse.duration = 0.25
+            pulse.duration = pulse.settlingDuration
             layer?.add(pulse, forKey: nil)
         } else if name == "cloud" {
             guard let layer = anim.value(forKey: "layer") as? CALayer else { return }
@@ -312,6 +321,33 @@ extension LoginViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         info.layer.removeAnimation(forKey: "infoappear")
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        
+        if text.count < 5 {
+            let jump = CASpringAnimation(keyPath: "position.y")
+            jump.initialVelocity = 100.0
+            jump.mass = 10.0
+            jump.stiffness = 1500.0
+            jump.damping = 50.0
+            jump.fromValue = textField.layer.position.y + 1.0
+            jump.toValue = textField.layer.position.y
+            jump.duration = jump.settlingDuration
+            textField.layer.add(jump, forKey: nil)
+            
+            textField.layer.borderWidth = 3.0
+            textField.layer.borderColor = UIColor.clear.cgColor
+            
+            let flash = CASpringAnimation(keyPath: "borderColor")
+            flash.damping = 7.0
+            flash.stiffness = 200.0
+            flash.fromValue = UIColor(red: 1.0, green: 0.27, blue: 0.0, alpha: 1.0).cgColor
+            flash.toValue = UIColor.white.cgColor
+            flash.duration = flash.settlingDuration
+            textField.layer.add(flash, forKey: nil)
+        }
     }
     
 }
