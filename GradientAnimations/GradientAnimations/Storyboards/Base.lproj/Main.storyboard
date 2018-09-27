@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GradientAnimations" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XLk-wq-eOw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EnW-Bd-cx6" customClass="AnimatedMaskLabel" customModule="Slide_to_reveal" customModuleProvider="target">
+                                <rect key="frame" x="72.5" y="443" width="230" height="44"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="Ugd-yd-Vgf"/>
+                                    <constraint firstAttribute="height" constant="44" id="jgG-qI-THm"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:42" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5uu-Ye-XpA">
+                                <rect key="frame" x="97.5" y="70" width="180.5" height="82.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="72"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.33333334329999997" green="0.33333334329999997" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5uu-Ye-XpA" firstAttribute="centerX" secondItem="vAm-z1-cXy" secondAttribute="centerX" id="3gT-dG-QQh"/>
+                            <constraint firstItem="5uu-Ye-XpA" firstAttribute="top" secondItem="vAm-z1-cXy" secondAttribute="top" constant="50" id="M2n-8A-2RY"/>
+                            <constraint firstItem="EnW-Bd-cx6" firstAttribute="centerX" secondItem="vAm-z1-cXy" secondAttribute="centerX" id="VTk-l1-6xr"/>
+                            <constraint firstItem="vAm-z1-cXy" firstAttribute="bottom" secondItem="EnW-Bd-cx6" secondAttribute="bottom" constant="180" id="fkK-uu-9UD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vAm-z1-cXy"/>
+                    </view>
+                    <connections>
+                        <outlet property="slideView" destination="EnW-Bd-cx6" id="mGG-zW-rax"/>
+                        <outlet property="timeLabel" destination="XLk-wq-eOw" id="buX-RP-AMW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
