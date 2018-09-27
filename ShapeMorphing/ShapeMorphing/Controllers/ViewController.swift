@@ -38,6 +38,9 @@ class ViewController: UIViewController {
         statusLabel.font = arialRounded
         vsLabel.font = arialRounded
         searchAgainButton.titleLabel?.font = arialRounded
+        
+        vsLabel.alpha = 0.0
+        searchAgainButton.alpha = 0.0
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -55,8 +58,33 @@ class ViewController: UIViewController {
         
         myAvatar.bounceOff(point: rightBouncePoint, morphSize: morphSize)
         opponentAvatar.bounceOff(point: leftBouncePoint, morphSize: morphSize)
+        
+        delay(seconds: 4.0, completion: foundOpponent)
     }
     
+    func foundOpponent() {
+        statusLabel.text = "Connecting..."
+        opponentAvatar.image = UIImage(named: "avatar-2")
+        opponentAvatar.name = "Marian"
+        
+        delay(seconds: 4.0, completion: connectedToOpponent)
+    }
+    
+    func connectedToOpponent() {
+        myAvatar.shouldTransitiontoFinishedState = true
+        opponentAvatar.shouldTransitiontoFinishedState = true
+        
+        delay(seconds: 1.0, completion: completed)
+    }
+    
+    func completed() {
+        statusLabel.text = "Ready to play"
+        
+        UIView.animate(withDuration: 0.2) {
+            self.vsLabel.alpha = 1.0
+            self.searchAgainButton.alpha = 1.0
+        }
+    }
     
     @IBAction func actionSearchAgain(_ sender: UIButton) {
     

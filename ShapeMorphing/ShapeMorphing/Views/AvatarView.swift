@@ -31,6 +31,7 @@ class AvatarView: UIView {
     let animationDuration = 1.0
     
     var shouldTransitiontoFinishedState = false
+    var isSquare = false
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
@@ -74,16 +75,51 @@ class AvatarView: UIView {
         UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8, options: [], animations: {
             self.center = point
         }) { _ in
-            // complete bounce to
+            if self.shouldTransitiontoFinishedState {
+                self.animateToSquare()
+            }
         }
         
         UIView.animate(withDuration: animationDuration, delay: animationDuration, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: [], animations: {
             self.center = originalCenter
         }) { _ in
             delay(seconds: 0.1) {
-                self.bounceOff(point: point, morphSize: morphSize)
+                if !self.isSquare {
+                    self.bounceOff(point: point, morphSize: morphSize)
+                }
             }
         }
+        
+        let morphedFrame = (originalCenter.x > point.x) ?
+            CGRect(x: 0.0,
+                   y: bounds.height - morphSize.height,
+                   width: morphSize.width,
+                   height: morphSize.height) :
+            CGRect(x: bounds.width - morphSize.width,
+                   y: bounds.height - morphSize.height,
+                   width: morphSize.width,
+                   height: morphSize.height)
+        
+        let morphAnimation = CABasicAnimation(keyPath: "path")
+        morphAnimation.duration = animationDuration
+        morphAnimation.toValue = UIBezierPath(ovalIn: morphedFrame).cgPath
+        morphAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        
+        circleLayer.add(morphAnimation, forKey: nil)
+        maskLayer.add(morphAnimation, forKey: nil)
+    }
+    
+    func animateToSquare() {
+        isSquare = true
+        let squarePath = UIBezierPath(rect: bounds)
+        let layerAnimation = CABasicAnimation(keyPath: "path")
+        layerAnimation.duration = 0.25
+        layerAnimation.fromValue = circleLayer.path
+        layerAnimation.toValue = squarePath
+        circleLayer.add(layerAnimation, forKey: nil)
+        circleLayer.path = squarePath.cgPath
+        maskLayer.add(layerAnimation, forKey: nil)
+        maskLayer.path = squarePath.cgPath
     }
     
 }
