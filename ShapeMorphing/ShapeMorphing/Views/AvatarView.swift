@@ -68,4 +68,22 @@ class AvatarView: UIView {
         addSubview(label)
     }
     
+    func bounceOff(point: CGPoint, morphSize: CGSize) {
+        let originalCenter = center
+        
+        UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8, options: [], animations: {
+            self.center = point
+        }) { _ in
+            // complete bounce to
+        }
+        
+        UIView.animate(withDuration: animationDuration, delay: animationDuration, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: [], animations: {
+            self.center = originalCenter
+        }) { _ in
+            delay(seconds: 0.1) {
+                self.bounceOff(point: point, morphSize: morphSize)
+            }
+        }
+    }
+    
 }
