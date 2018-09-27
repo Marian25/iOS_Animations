@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2139778215CED21009649DD /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2139777215CED21009649DD /* AvatarView.swift */; };
 		A26AE581215CE9FF005E0843 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26AE580215CE9FF005E0843 /* AppDelegate.swift */; };
 		A26AE583215CE9FF005E0843 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26AE582215CE9FF005E0843 /* ViewController.swift */; };
 		A26AE586215CE9FF005E0843 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A26AE584215CE9FF005E0843 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A2139777215CED21009649DD /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		A26AE57D215CE9FF005E0843 /* ShapeMorphing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShapeMorphing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A26AE580215CE9FF005E0843 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A26AE582215CE9FF005E0843 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +37,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2139772215CEADF009649DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A26AE587215CEA0D005E0843 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A2139773215CEAF1009649DD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A26AE582215CE9FF005E0843 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A2139774215CEAFA009649DD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A26AE58C215CEA0D005E0843 /* Info.plist */,
+				A26AE580215CE9FF005E0843 /* AppDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A2139775215CEB05009649DD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A26AE584215CE9FF005E0843 /* Main.storyboard */,
+				A26AE589215CEA0D005E0843 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A2139776215CED08009649DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A2139777215CED21009649DD /* AvatarView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A26AE574215CE9FE005E0843 = {
 			isa = PBXGroup;
 			children = (
@@ -54,12 +98,11 @@
 		A26AE57F215CE9FF005E0843 /* ShapeMorphing */ = {
 			isa = PBXGroup;
 			children = (
-				A26AE580215CE9FF005E0843 /* AppDelegate.swift */,
-				A26AE582215CE9FF005E0843 /* ViewController.swift */,
-				A26AE584215CE9FF005E0843 /* Main.storyboard */,
-				A26AE587215CEA0D005E0843 /* Assets.xcassets */,
-				A26AE589215CEA0D005E0843 /* LaunchScreen.storyboard */,
-				A26AE58C215CEA0D005E0843 /* Info.plist */,
+				A2139776215CED08009649DD /* Views */,
+				A2139773215CEAF1009649DD /* Controllers */,
+				A2139775215CEB05009649DD /* Storyboards */,
+				A2139772215CEADF009649DD /* Resources */,
+				A2139774215CEAFA009649DD /* Supporting Files */,
 			);
 			path = ShapeMorphing;
 			sourceTree = "<group>";
@@ -136,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A26AE583215CE9FF005E0843 /* ViewController.swift in Sources */,
+				A2139778215CED21009649DD /* AvatarView.swift in Sources */,
 				A26AE581215CE9FF005E0843 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +328,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ULSKSPKFH7;
-				INFOPLIST_FILE = ShapeMorphing/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ShapeMorphing/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +346,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ULSKSPKFH7;
-				INFOPLIST_FILE = ShapeMorphing/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ShapeMorphing/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
