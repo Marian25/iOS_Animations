@@ -20,7 +20,7 @@ func delay(seconds: Double, completion: @escaping () -> ()) {
 class TableViewController: UITableViewController, RefreshViewDelegate {
 
     private let kRefreshViewHeight: CGFloat = 110.0
-    private let packItems = ["Icecream money", "Great weather", "Beach ball", "Swim suit for him", "Swim suit for her", "Beach games", "Ironing board", "Cocktail mood", "Sunglasses", "Flip flops"]
+    private let packItems = ["Ice cream money", "Great weather", "Beach ball", "Swim suit for him", "Swim suit for her", "Beach games", "Ironing board", "Cocktail mood", "Sunglasses", "Flip flops"]
     private var refreshView: RefreshView!
     
     
@@ -60,7 +60,7 @@ class TableViewController: UITableViewController, RefreshViewDelegate {
     // MARK: - Table View Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return packItems.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
