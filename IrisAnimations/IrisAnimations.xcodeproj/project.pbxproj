@@ -12,6 +12,8 @@
 		A2E386EB215E467900F895CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E386E9215E467900F895CF /* Main.storyboard */; };
 		A2E386ED215E468100F895CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E386EC215E468100F895CF /* Assets.xcassets */; };
 		A2E386F0215E468200F895CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E386EE215E468200F895CF /* LaunchScreen.storyboard */; };
+		A2E386FD215E47D400F895CF /* Assistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E386FC215E47D400F895CF /* Assistant.swift */; };
+		A2E386FF215E492500F895CF /* MicMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E386FE215E492500F895CF /* MicMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		A2E386EC215E468100F895CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2E386EF215E468200F895CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2E386F1215E468200F895CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2E386FC215E47D400F895CF /* Assistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assistant.swift; sourceTree = "<group>"; };
+		A2E386FE215E492500F895CF /* MicMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 		A2E386F7215E470A00F895CF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A2E386FC215E47D400F895CF /* Assistant.swift */,
+				A2E386FE215E492500F895CF /* MicMonitor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -175,7 +181,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2E386FF215E492500F895CF /* MicMonitor.swift in Sources */,
 				A2E386E8215E467900F895CF /* ViewController.swift in Sources */,
+				A2E386FD215E47D400F895CF /* Assistant.swift in Sources */,
 				A2E386E6215E467900F895CF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,7 +332,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ULSKSPKFH7;
-				INFOPLIST_FILE = IrisAnimations/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/IrisAnimations/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -342,7 +350,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ULSKSPKFH7;
-				INFOPLIST_FILE = IrisAnimations/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/IrisAnimations/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

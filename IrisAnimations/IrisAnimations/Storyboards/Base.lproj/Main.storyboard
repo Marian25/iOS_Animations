@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +12,66 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="IrisAnimations" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Hf-3U-r1B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch to speak" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGB-FO-UeH">
+                                <rect key="frame" x="16" y="410" width="343" height="99"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="99" id="ziC-QV-87E"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teT-5N-5bO">
+                                <rect key="frame" x="154" y="517" width="67" height="67"/>
+                                <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="I9G-6w-Oag"/>
+                                    <constraint firstAttribute="width" constant="67" id="dpo-sA-1QK"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="highlighted" title="..."/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="33"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="actionEndMonitoring:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pud-gz-bbS"/>
+                                    <action selector="actionStartMonitoring:" destination="BYZ-38-t0r" eventType="touchDown" id="6L3-HQ-feL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3ZT-m5-NTR" firstAttribute="bottom" secondItem="teT-5N-5bO" secondAttribute="bottom" constant="83" id="8Mi-ck-SeO"/>
+                            <constraint firstItem="oGB-FO-UeH" firstAttribute="trailing" secondItem="7Hf-3U-r1B" secondAttribute="trailingMargin" id="8X3-yL-qiu"/>
+                            <constraint firstItem="oGB-FO-UeH" firstAttribute="leading" secondItem="7Hf-3U-r1B" secondAttribute="leadingMargin" id="ECC-LA-Oxn"/>
+                            <constraint firstItem="teT-5N-5bO" firstAttribute="top" secondItem="oGB-FO-UeH" secondAttribute="bottom" constant="8" id="EkL-Lb-IA4"/>
+                            <constraint firstAttribute="centerX" secondItem="teT-5N-5bO" secondAttribute="centerX" id="dlX-LK-qRD"/>
+                            <constraint firstAttribute="centerX" secondItem="oGB-FO-UeH" secondAttribute="centerX" id="hfl-Rs-sOG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3ZT-m5-NTR"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hfl-Rs-sOG"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="meterLabel" destination="oGB-FO-UeH" id="wvn-MH-fr8"/>
+                        <outlet property="speakButton" destination="teT-5N-5bO" id="OKl-wM-R06"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-47" y="12"/>
         </scene>
     </scenes>
 </document>
