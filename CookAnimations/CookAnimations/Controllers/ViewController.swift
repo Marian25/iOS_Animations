@@ -16,11 +16,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     
     var selectedImage: UIImageView?
+    let transition = PopAnimator()
     
     // MARK: - ViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        transition.dismissCompletion = {
+            self.selectedImage?.isHidden = false
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,8 +87,33 @@ class ViewController: UIViewController {
         
         let herbDetails = storyboard!.instantiateViewController(withIdentifier: "HerbDetailsViewController") as! HerbDetailsViewController
         herbDetails.herb = selectedHerb
+        herbDetails.transitioningDelegate = self
         present(herbDetails, animated: true, completion: nil)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        coordinator.animate(alongsideTransition: { context in
+            self.backgroundImage.alpha = (size.width > size.height) ? 0.25 : 0.55
+            self.positionListItems()
+        }, completion: nil)
     }
     
 }
 
+extension ViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.originFrame = selectedImage!.superview!.convert(selectedImage!.frame, to: nil)
+        transition.presenting = true
+        selectedImage?.isHidden = true
+        
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.presenting = false
+        return transition
+    }
+}
