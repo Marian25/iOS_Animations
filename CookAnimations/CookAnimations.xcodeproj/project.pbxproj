@@ -12,6 +12,8 @@
 		A2E6368A216392D8009E0674 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E63688216392D8009E0674 /* Main.storyboard */; };
 		A2E6368C216392E8009E0674 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E6368B216392E8009E0674 /* Assets.xcassets */; };
 		A2E6368F216392E8009E0674 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E6368D216392E8009E0674 /* LaunchScreen.storyboard */; };
+		A2E6369C21639616009E0674 /* HerbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6369B21639616009E0674 /* HerbModel.swift */; };
+		A2E6369E21639644009E0674 /* HerbDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6369D21639644009E0674 /* HerbDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		A2E6368B216392E8009E0674 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2E6368E216392E8009E0674 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2E63690216392E8009E0674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2E6369B21639616009E0674 /* HerbModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerbModel.swift; sourceTree = "<group>"; };
+		A2E6369D21639644009E0674 /* HerbDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerbDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 		A2E63683216392D7009E0674 /* CookAnimations */ = {
 			isa = PBXGroup;
 			children = (
+				A2E6369A216395FF009E0674 /* Models */,
 				A2E6369721639328009E0674 /* Controllers */,
 				A2E6369621639320009E0674 /* Storyboards */,
 				A2E636992163933C009E0674 /* Resources */,
@@ -75,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				A2E63686216392D8009E0674 /* ViewController.swift */,
+				A2E6369D21639644009E0674 /* HerbDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -94,6 +100,14 @@
 				A2E6368B216392E8009E0674 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A2E6369A216395FF009E0674 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A2E6369B21639616009E0674 /* HerbModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,7 +181,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2E6369E21639644009E0674 /* HerbDetailsViewController.swift in Sources */,
 				A2E63687216392D8009E0674 /* ViewController.swift in Sources */,
+				A2E6369C21639616009E0674 /* HerbModel.swift in Sources */,
 				A2E63685216392D8009E0674 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
