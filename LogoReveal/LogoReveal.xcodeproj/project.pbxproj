@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		A2C371022163F07A00A52FE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C371012163F07A00A52FE2 /* AppDelegate.swift */; };
-		A2C371042163F07A00A52FE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C371032163F07A00A52FE2 /* ViewController.swift */; };
+		A2C371042163F07A00A52FE2 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C371032163F07A00A52FE2 /* MasterViewController.swift */; };
 		A2C371072163F07A00A52FE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2C371052163F07A00A52FE2 /* Main.storyboard */; };
 		A2C371092163F08300A52FE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2C371082163F08300A52FE2 /* Assets.xcassets */; };
 		A2C3710C2163F08300A52FE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2C3710A2163F08300A52FE2 /* LaunchScreen.storyboard */; };
+		A2C371182163F33200A52FE2 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C371172163F33200A52FE2 /* DetailTableViewController.swift */; };
+		A2C3711A2163F71E00A52FE2 /* RWLogoLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C371192163F71E00A52FE2 /* RWLogoLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A2C370FE2163F07A00A52FE2 /* LogoReveal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogoReveal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2C371012163F07A00A52FE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A2C371032163F07A00A52FE2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A2C371032163F07A00A52FE2 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		A2C371062163F07A00A52FE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A2C371082163F08300A52FE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2C3710B2163F08300A52FE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2C3710D2163F08300A52FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2C371172163F33200A52FE2 /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		A2C371192163F71E00A52FE2 /* RWLogoLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWLogoLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 				A2C371142163F0B200A52FE2 /* Storyboards */,
 				A2C371162163F0C200A52FE2 /* Resources */,
 				A2C371132163F0A700A52FE2 /* Supporting Files */,
+				A2C371192163F71E00A52FE2 /* RWLogoLayer.swift */,
 			);
 			path = LogoReveal;
 			sourceTree = "<group>";
@@ -83,7 +88,8 @@
 		A2C371152163F0BA00A52FE2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A2C371032163F07A00A52FE2 /* ViewController.swift */,
+				A2C371032163F07A00A52FE2 /* MasterViewController.swift */,
+				A2C371172163F33200A52FE2 /* DetailTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -167,8 +173,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2C371042163F07A00A52FE2 /* ViewController.swift in Sources */,
+				A2C371182163F33200A52FE2 /* DetailTableViewController.swift in Sources */,
+				A2C371042163F07A00A52FE2 /* MasterViewController.swift in Sources */,
 				A2C371022163F07A00A52FE2 /* AppDelegate.swift in Sources */,
+				A2C3711A2163F71E00A52FE2 /* RWLogoLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,12 +324,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ULSKSPKFH7;
-				INFOPLIST_FILE = LogoReveal/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/LogoReveal/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.marian.LogoReveal;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marian.CookAnimations;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -334,12 +342,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ULSKSPKFH7;
-				INFOPLIST_FILE = LogoReveal/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/LogoReveal/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.marian.LogoReveal;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marian.CookAnimations;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
