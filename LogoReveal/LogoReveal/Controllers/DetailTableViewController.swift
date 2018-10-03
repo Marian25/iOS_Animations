@@ -10,6 +10,7 @@ import UIKit
 
 class DetailTableViewController: UITableViewController {
 
+    weak var transition: RevealAnimator?
     let packItems = ["Ice cream money", "Great weather", "Beach ball", "Swimsuit for him", "Swimsuit for her", "Beach games", "Ironing board", "Cocktail mood", "Sunglasses", "Flip flops"]
     
     override func viewDidLoad() {
@@ -17,6 +18,19 @@ class DetailTableViewController: UITableViewController {
         
         title = "Pack List"
         tableView.rowHeight = 54.0
+        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan))
+        view.addGestureRecognizer(pan)
+    }
+    
+    @objc func didPan(recognizer: UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            transition!.interactive = true
+            navigationController?.popViewController(animated: true)
+        default:
+            transition!.handlePan(recognizer: recognizer)
+        }
     }
 
     // MARK: - Table view data source

@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 
-class RevealAnimator: NSObject, UIViewControllerAnimatedTransitioning, CAAnimationDelegate {
+class RevealAnimator: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning, CAAnimationDelegate {
     
     let animationDuration = 2.0
     var operation: UINavigationController.Operation = .push
     weak var storedContext: UIViewControllerContextTransitioning?
+    var interactive = false
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return animationDuration
@@ -76,6 +77,32 @@ class RevealAnimator: NSObject, UIViewControllerAnimatedTransitioning, CAAnimati
             
         }
         storedContext = nil
+    }
+    
+    func handlePan(recognizer: UIPanGestureRecognizer) {
+        let translation = recognizer.translation(in: recognizer.view!.superview!)
+        var progress: CGFloat = abs(translation.x / 200.0)
+        progress = min(max(progress, 0.01), 0.99)
+        
+        switch recognizer.state {
+        case .changed:
+            update(progress)
+        case .cancelled, .ended:
+            let transitionLayer = storedContext!.containerView.layer
+            transitionLayer.beginTime = CACurrentMediaTime()
+            
+            print("progress - \(progress)")
+            if progress < 0.5 {
+                cancel()
+                transitionLayer.speed = -1.0
+            } else {
+                transitionLayer.speed = 1.0
+                finish()
+            }
+            interactive = false
+        default:
+            break
+        }
     }
     
 }

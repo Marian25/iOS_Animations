@@ -34,8 +34,8 @@ class MasterViewController: UIViewController {
         super.viewDidAppear(animated)
         
         // Add the Tap Gesture Recognizer
-        let tap = UITapGestureRecognizer(target: self, action: #selector(didTap))
-        view.addGestureRecognizer(tap)
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan))
+        view.addGestureRecognizer(pan)
         
         // Add the Logo to the view
         logo.position = CGPoint(x: view.layer.bounds.size.width / 2,
@@ -46,10 +46,25 @@ class MasterViewController: UIViewController {
     
     // MARK: - Gesture Recognizer Handler
     
-    @objc func didTap() {
-        performSegue(withIdentifier: "details", sender: nil)
+    @objc func didPan(recognizer: UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            transition.interactive = true
+            performSegue(withIdentifier: "details", sender: nil)
+        default:
+            transition.handlePan(recognizer: recognizer)
+        }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "details":
+            guard let destination = segue.destination as? DetailTableViewController else { return }
+            destination.transition = transition
+        default:
+            break
+        }
+    }
 
 }
 
@@ -57,6 +72,14 @@ extension MasterViewController: UINavigationControllerDelegate {
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.operation = operation
+        return transition
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        if !transition.interactive{
+            return nil
+        }
+        
         return transition
     }
     
