@@ -14,6 +14,7 @@
 		A2C3710C2163F08300A52FE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2C3710A2163F08300A52FE2 /* LaunchScreen.storyboard */; };
 		A2C371182163F33200A52FE2 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C371172163F33200A52FE2 /* DetailTableViewController.swift */; };
 		A2C3711A2163F71E00A52FE2 /* RWLogoLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C371192163F71E00A52FE2 /* RWLogoLayer.swift */; };
+		A2F6F70A2164C02A005D2209 /* RevealAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F6F7092164C02A005D2209 /* RevealAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A2C3710D2163F08300A52FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2C371172163F33200A52FE2 /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		A2C371192163F71E00A52FE2 /* RWLogoLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWLogoLayer.swift; sourceTree = "<group>"; };
+		A2F6F7092164C02A005D2209 /* RevealAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				A2C371162163F0C200A52FE2 /* Resources */,
 				A2C371132163F0A700A52FE2 /* Supporting Files */,
 				A2C371192163F71E00A52FE2 /* RWLogoLayer.swift */,
+				A2F6F7092164C02A005D2209 /* RevealAnimator.swift */,
 			);
 			path = LogoReveal;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				A2C371042163F07A00A52FE2 /* MasterViewController.swift in Sources */,
 				A2C371022163F07A00A52FE2 /* AppDelegate.swift in Sources */,
 				A2C3711A2163F71E00A52FE2 /* RWLogoLayer.swift in Sources */,
+				A2F6F70A2164C02A005D2209 /* RevealAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

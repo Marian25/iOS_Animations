@@ -21,6 +21,7 @@ func delay(seconds: Double, completion: @escaping () -> ()) {
 class MasterViewController: UIViewController {
 
     let logo = RWLogoLayer.logoLayer()
+    let transition = RevealAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ class MasterViewController: UIViewController {
         
         // Add the Logo to the view
         logo.position = CGPoint(x: view.layer.bounds.size.width / 2,
-                                y: view.layer.bounds.size.width / 2 - 30)
+                                y: view.layer.bounds.size.height / 2 - 30)
         logo.fillColor = UIColor.white.cgColor
         view.layer.addSublayer(logo)
     }
@@ -55,7 +56,8 @@ class MasterViewController: UIViewController {
 extension MasterViewController: UINavigationControllerDelegate {
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return nil
+        transition.operation = operation
+        return transition
     }
     
 }
