@@ -33,10 +33,13 @@ class LockScreenViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.transform = CGAffineTransform(scaleX: 0.67, y: 0.67)
+        tableView.alpha = 0
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        AnimatorFactory.scaleUp(view: tableView).startAnimation()
     }
     
     override func viewWillLayoutSubviews() {
@@ -45,6 +48,10 @@ class LockScreenViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    func toggleBlur(_ blurred: Bool) {
+        AnimatorFactory.fade(view: blurView, blurred: blurred)
     }
     
     func presentSettings() {
@@ -79,6 +86,14 @@ extension LockScreenViewController: UITableViewDataSource {
 }
 
 extension LockScreenViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        toggleBlur(true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        toggleBlur(false)
+    }
     
     func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()

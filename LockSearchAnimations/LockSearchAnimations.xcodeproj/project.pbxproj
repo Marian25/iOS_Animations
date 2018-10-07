@@ -13,6 +13,7 @@
 		A25E1FC0216514E8009B156B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A25E1FBF216514E8009B156B /* Assets.xcassets */; };
 		A25E1FC3216514E8009B156B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25E1FC1216514E8009B156B /* LaunchScreen.storyboard */; };
 		A29F4F9B216A705F00AC8E74 /* IconEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F4F9A216A705F00AC8E74 /* IconEffectView.swift */; };
+		A29F4F9D216A808000AC8E74 /* AnimatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F4F9C216A808000AC8E74 /* AnimatorFactory.swift */; };
 		A2A6C4E92165E89700AD7CAA /* FooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6C4E82165E89700AD7CAA /* FooterCell.swift */; };
 		A2A6C4EC2165E9E800AD7CAA /* WidgetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6C4EB2165E9E800AD7CAA /* WidgetCell.swift */; };
 		A2A6C4EE2165EAE800AD7CAA /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6C4ED2165EAE800AD7CAA /* WidgetView.swift */; };
@@ -29,6 +30,7 @@
 		A25E1FC2216514E8009B156B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A25E1FC4216514E8009B156B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A29F4F9A216A705F00AC8E74 /* IconEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconEffectView.swift; sourceTree = "<group>"; };
+		A29F4F9C216A808000AC8E74 /* AnimatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorFactory.swift; sourceTree = "<group>"; };
 		A2A6C4E82165E89700AD7CAA /* FooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCell.swift; sourceTree = "<group>"; };
 		A2A6C4EB2165E9E800AD7CAA /* WidgetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCell.swift; sourceTree = "<group>"; };
 		A2A6C4ED2165EAE800AD7CAA /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				A25E1FBA216514E4009B156B /* LockScreenViewController.swift */,
 				A2A6C4E82165E89700AD7CAA /* FooterCell.swift */,
 				A2A6C4EF2165EC8B00AD7CAA /* WidgetsOwnerProtocol.swift */,
+				A29F4F9C216A808000AC8E74 /* AnimatorFactory.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A29F4F9B216A705F00AC8E74 /* IconEffectView.swift in Sources */,
+				A29F4F9D216A808000AC8E74 /* AnimatorFactory.swift in Sources */,
 				A25E1FBB216514E4009B156B /* LockScreenViewController.swift in Sources */,
 				A2A6C4F22165F22D00AD7CAA /* IconCell.swift in Sources */,
 				A2A6C4E92165E89700AD7CAA /* FooterCell.swift in Sources */,

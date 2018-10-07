@@ -72,4 +72,15 @@ extension WidgetView: UICollectionViewDataSource {
         cell.icon.image = UIImage(named: "icon\(indexPath.row+1)")
         return cell
     }
+    
+}
+
+extension WidgetView: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? IconCell {
+            cell.iconJiggle()
+        }
+    }
+    
 }
