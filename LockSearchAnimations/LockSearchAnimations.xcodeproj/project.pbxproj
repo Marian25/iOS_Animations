@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A253E9B5216BEB1600EB337F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A253E9B4216BEB1600EB337F /* SettingsViewController.swift */; };
 		A25E1FB9216514E4009B156B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25E1FB8216514E4009B156B /* AppDelegate.swift */; };
 		A25E1FBB216514E4009B156B /* LockScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25E1FBA216514E4009B156B /* LockScreenViewController.swift */; };
 		A25E1FBE216514E4009B156B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25E1FBC216514E4009B156B /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A253E9B4216BEB1600EB337F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A25E1FB5216514E4009B156B /* LockSearchAnimations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockSearchAnimations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A25E1FB8216514E4009B156B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A25E1FBA216514E4009B156B /* LockScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A253E9B3216BEA6F00EB337F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A253E9B4216BEB1600EB337F /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		A25E1FAC216514E4009B156B = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +98,7 @@
 		A25E1FCB2165152C009B156B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A253E9B3216BEA6F00EB337F /* Settings */,
 				A2A6C4EA2165E9D400AD7CAA /* Widget */,
 				A25E1FBA216514E4009B156B /* LockScreenViewController.swift */,
 				A2A6C4E82165E89700AD7CAA /* FooterCell.swift */,
@@ -199,6 +210,7 @@
 				A29F4F9B216A705F00AC8E74 /* IconEffectView.swift in Sources */,
 				A29F4F9D216A808000AC8E74 /* AnimatorFactory.swift in Sources */,
 				A25E1FBB216514E4009B156B /* LockScreenViewController.swift in Sources */,
+				A253E9B5216BEB1600EB337F /* SettingsViewController.swift in Sources */,
 				A2A6C4F22165F22D00AD7CAA /* IconCell.swift in Sources */,
 				A2A6C4E92165E89700AD7CAA /* FooterCell.swift in Sources */,
 				A25E1FB9216514E4009B156B /* AppDelegate.swift in Sources */,

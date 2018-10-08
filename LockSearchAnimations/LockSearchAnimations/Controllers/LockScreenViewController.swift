@@ -22,6 +22,8 @@ class LockScreenViewController: UIViewController {
     
     let previewEffectView = IconEffectView(blur: .extraLight)
     
+    var settingsController: SettingsViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,7 +64,8 @@ class LockScreenViewController: UIViewController {
     }
     
     func presentSettings() {
-        
+        settingsController = storyboard?.instantiateViewController(withIdentifier: "SettingsViewController") as? SettingsViewController
+        present(settingsController, animated: true, completion: nil)
     }
     
     func blurAnimations(_ blurred: Bool) -> () -> Void {
