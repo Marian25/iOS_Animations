@@ -20,7 +20,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="DEf-XH-DVG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="wIK-Tw-Epm"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="wIK-Tw-Epm">
+                            <connections>
+                                <action selector="toggleGallery:" destination="BYZ-38-t0r" id="NyP-b9-gDL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
