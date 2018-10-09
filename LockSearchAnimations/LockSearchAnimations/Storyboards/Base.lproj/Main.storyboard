@@ -271,7 +271,7 @@
                         <outlet property="dateTopConstraint" destination="0Wl-N5-Q8z" id="TYf-Sm-ADn"/>
                         <outlet property="searchBar" destination="eFm-ZK-dpB" id="EZL-v2-nPQ"/>
                         <outlet property="tableView" destination="k6x-S1-mZX" id="g4q-kM-Iey"/>
-                        <segue destination="7W9-86-WbE" kind="show" id="eRQ-w9-ayR"/>
+                        <segue destination="7W9-86-WbE" kind="show" identifier="Settings" id="eRQ-w9-ayR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -281,7 +281,8 @@
         <!--Settings View Controller-->
         <scene sceneID="sD1-ac-Eki">
             <objects>
-                <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7W9-86-WbE" customClass="SettingsViewController" customModule="LockSearchAnimations" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VPS-hK-KX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="SettingsViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7W9-86-WbE" customClass="SettingsViewController" customModule="LockSearchAnimations" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="iPx-nI-MIQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -353,9 +354,8 @@
                     </view>
                     <size key="freeformSize" width="375" height="300"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VPS-hK-KX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830" y="-32"/>
+            <point key="canvasLocation" x="-826" y="-49"/>
         </scene>
     </scenes>
     <resources>

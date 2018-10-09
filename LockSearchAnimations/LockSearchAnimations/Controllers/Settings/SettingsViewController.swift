@@ -10,8 +10,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    var items = ["Add Weather", "Add Stocks", "Cancel"]
-    var didDismiss: (()-> Void)?
+    var items = ["Add Weather", "Add Stocks", "Add Clock", "Cancel"]
+    var didDismiss: (() -> Void)?
 
 }
 
